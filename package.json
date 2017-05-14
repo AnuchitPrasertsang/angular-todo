@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Suzuki Aki <suzuki11109@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --open"
+  },
   "dependencies": {
     "angular": "^1.6.4",
     "angular-ui-router": "^1.0.3"
@@ -19,5 +22,11 @@
     "style-loader": "^0.17.0",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
   }
 }
