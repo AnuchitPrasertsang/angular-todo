@@ -2,7 +2,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test:watch';
-var isProd = process.env.NODE_ENV === 'production';
+// var isProd = process.env.NODE_ENV === 'production';
 
 module.exports = function() {
   var config = {};
@@ -27,8 +27,14 @@ module.exports = function() {
   config.module = {
     rules: [
       {
+        enforce: "pre",
         test: /\.js$/,
-        use: 'babel-loader',
+        use: ['eslint-loader'],
+        include: path.join(__dirname, 'src/app')
+      },
+      {
+        test: /\.js$/,
+        use: ['babel-loader'],
         include: path.join(__dirname, 'src/app')
       },
       {
