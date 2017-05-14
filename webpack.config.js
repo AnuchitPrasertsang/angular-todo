@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/app/app.module.js',
   output: {
     path: path.join(__dirname, 'src'),
-    filename: 'index.js'
+    filename: 'bundle.js'
   },
   devServer: {
     contentBase: path.join(__dirname, 'src')
