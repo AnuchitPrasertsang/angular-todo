@@ -1,7 +1,6 @@
 import angular from 'angular';
+import { AppComponent } from './app.component';
 
 angular
   .module('app', [])
-  .component('app', {
-    template: '<h1>It works!</h1>'
-  });
+  .component('app', AppComponent);
