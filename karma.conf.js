@@ -24,10 +24,7 @@ module.exports = function(config) {
     exclude: [
     ],
 
-    webpack: {
-      devtool: 'inline-source-map',
-      module: webpackConfig.module
-    },
+    webpack: webpackConfig,
 
     webpackServer: {
       noInfo: true
