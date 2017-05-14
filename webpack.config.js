@@ -19,7 +19,9 @@ module.exports = function() {
 
   config.devServer = {
     contentBase: path.join(__dirname, 'src'),
-    stats: 'minimal'
+    overlay: true,
+    stats: 'minimal',
+    historyApiFallback: true
   };
 
   config.module = {

@@ -1,6 +1,7 @@
 {
   "name": "angular-starter",
   "version": "1.0.0",
+  "description": "AngularJS starter project with component based design and unit testing",
   "main": "index.js",
   "author": "Suzuki Aki <suzuki11109@gmail.com>",
   "license": "MIT",
