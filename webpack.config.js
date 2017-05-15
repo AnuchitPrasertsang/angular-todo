@@ -54,6 +54,10 @@ module.exports = function() {
   if (isTest) {
     config.devtool = 'inline-source-map';
     config.output = {};
+    config.module.rules.push({
+      test: /\.css$/,
+      use: 'null-loader'
+    });
     return config;
   }
 
