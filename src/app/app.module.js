@@ -1,3 +1,4 @@
+import '../css/app.css';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import { AppComponent } from './app.component';
