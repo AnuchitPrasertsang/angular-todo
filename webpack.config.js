@@ -1,8 +1,10 @@
 var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test:watch';
-// var isProd = process.env.NODE_ENV === 'production';
+var isProd = process.env.NODE_ENV === 'production';
 
 module.exports = function() {
   var config = {};
@@ -43,9 +45,8 @@ module.exports = function() {
         include: path.join(__dirname, 'src/app')
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-        include: path.join(__dirname, 'src')
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+        loader: 'file-loader'
       }
     ]
   }
@@ -56,13 +57,31 @@ module.exports = function() {
     return config;
   }
 
+  config.module.rules.push({
+    test: /\.css$/,
+    use: ExtractTextPlugin.extract({
+      fallback: "style-loader",
+      use: "css-loader"
+    }),
+    include: path.join(__dirname, 'src')
+  });
+
   config.plugins = [];
   config.plugins.push(
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body'
-    })
+    }),
+    new ExtractTextPlugin({filename: 'styles.css', disable: !isProd})
   );
+
+  if (isProd) {
+    config.devtool = 'source-map';
+    config.plugins.push(
+      new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.optimize.UglifyJsPlugin()
+    );
+  }
 
   return config;
 }();
