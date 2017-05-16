@@ -8,7 +8,7 @@ describe('AppComponent', () => {
   }));
 
   it('set initial values', () => {
-    expect($ctrl.newTodo).toEqual('');
+    expect($ctrl.newTodo).toEqual({id: '', topic: ''});
     expect($ctrl.todos).toEqual([]);
   });
 });

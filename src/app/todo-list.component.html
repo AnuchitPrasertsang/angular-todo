@@ -1,0 +1,6 @@
+<ul>
+  <li ng-repeat="todo in $ctrl.todos">
+    {{todo.topic}}
+    <button ng-click="$ctrl.onClickDelete(todo)">x</button>
+  </li>
+</ul>

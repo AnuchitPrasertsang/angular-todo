@@ -24,16 +24,14 @@ export const AppComponent = {
         });
     }
 
-    addTodo() {
-      this.todoService.create(this.newTodo)
+    addTodo({todo}) {
+      this.todoService.create(todo)
         .then(() => {
-          this.newTodo.id = '';
-          this.newTodo.topic = '';
           this.getTodos();
         });
     }
 
-    deleteTodo(todo) {
+    deleteTodo({todo}) {
       this.todoService.delete(todo)
         .then(() => {
           this.getTodos();
