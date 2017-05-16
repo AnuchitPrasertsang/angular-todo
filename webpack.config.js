@@ -21,7 +21,10 @@ module.exports = function() {
 
   config.devServer = {
     contentBase: path.join(__dirname, 'src'),
-    overlay: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
     stats: 'minimal',
     historyApiFallback: true
   };

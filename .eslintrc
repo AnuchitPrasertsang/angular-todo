@@ -1,9 +1,16 @@
 {
   "parser": "babel-eslint",
   "extends": "eslint:recommended",
+  "rules": {
+    "no-console": "warn"
+  },
   "env": {
     "browser": true,
     "jasmine": true,
     "node": true
+  },
+  "globals": {
+    "inject": true,
+    "module": true
   }
 }
