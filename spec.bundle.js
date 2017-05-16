@@ -1,5 +1,6 @@
-import angular from 'angular';
-import mocks from 'angular-mocks';
+import 'angular';
+import 'angular-mocks/angular-mocks';
+import './src/app/app.module';
 
 let context = require.context('./src', true, /\.spec\.js/);
 

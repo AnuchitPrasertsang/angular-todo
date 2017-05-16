@@ -1,1 +1,10 @@
-<h1>It works!</h1>
+<h1>Todo list</h1>
+<input type="text" ng-model="$ctrl.newTodo.id">
+<input type="text" ng-model="$ctrl.newTodo.topic">
+<button ng-click="$ctrl.addTodo()">Add</button>
+<ul>
+  <li ng-repeat="todo in $ctrl.todos">
+    {{todo.topic}}
+    <button ng-click="$ctrl.deleteTodo(todo)">x</button>
+  </li>
+</ul>
