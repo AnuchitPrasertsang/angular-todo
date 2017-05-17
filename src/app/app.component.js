@@ -20,10 +20,11 @@ export const AppComponent = {
 
     heroes = HEROES;
 
-    hero = {
-      id: 1,
-      name: 'Captain America'
-    };
+    selectedHero;
+
+    onSelect(hero) {
+      this.selectedHero = hero;
+    }
 
   }
 };
