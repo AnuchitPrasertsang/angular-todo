@@ -37,5 +37,8 @@ export const AppComponent = {
           this.getTodos();
         });
     }
+
+    onUpdate() {
+    }
   }
 };
