@@ -5,6 +5,7 @@ export const HeroesComponent = {
   controller: class HeroesComponent {
     heroes;
     selectedHero;
+    spyCall = false;
 
     constructor(HeroService, $state) {
       this.heroService = HeroService;
@@ -23,7 +24,19 @@ export const HeroesComponent = {
     }
 
     goToDetail() {
-      this.$state.go('detail', {id: this.selectedHero.id});
+      this.$state.go('detail', {
+        id: this.selectedHero.id
+      });
+    }
+
+    sampleSpy() {
+      if (true) {
+        this.heroServiceSpy();
+      }
+    }
+
+    heroServiceSpy() {
+      this.spyCall = true;
     }
   }
 };

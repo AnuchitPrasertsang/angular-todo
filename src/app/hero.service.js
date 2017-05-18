@@ -18,4 +18,8 @@ export class HeroService {
       });
 
   }
+
+  getHeroesSync() {
+    return [{id: 1, name: "nong"}, {id: 2, name: "RUX"}];
+  }
 }
