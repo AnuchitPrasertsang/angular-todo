@@ -1,0 +1,11 @@
+<div>
+  <ul>
+   <li ng-repeat="hero in $ctrl.heroes" ng-click="$ctrl.onSelect(hero)">
+    {{hero.id}}: {{hero.name}}
+   </li>
+  </ul>
+</div>
+<div ng-if="$ctrl.selectedHero">
+  {{$ctrl.selectedHero.name | uppercase}} is my hero.
+  <button ng-click="$ctrl.goToDetail()">View detail</button>
+</div>

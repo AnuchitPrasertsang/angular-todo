@@ -2,7 +2,25 @@ import '../css/app.css';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import { AppComponent } from './app.component';
+import { HeroDetailComponent } from './hero-detail.component';
+import { HeroService } from './hero.service';
+import { HeroesComponent } from './heroes.component';
 
 angular
   .module('app', [uiRouter])
-  .component('app', AppComponent);
+  .config(($stateProvider) => {
+    $stateProvider
+      .state('heroes', {
+        url: '/heroes',
+        component: 'heroes'
+      })
+      .state('detail', {
+        url: '/detail/:id',
+        component: 'heroDetail'
+      });
+  })
+  .component('app', AppComponent)
+  .component('heroDetail', HeroDetailComponent)
+  .service('HeroService', HeroService)
+  .component('heroes', HeroesComponent);
+
